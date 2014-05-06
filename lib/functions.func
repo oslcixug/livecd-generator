@@ -1,0 +1,38 @@
+#! /bin/bash
+#
+# functions.func
+# Copyright (C) 2008-2011 	OSL da USC - Francisco Diéguez <francisco.dieguez@usc.es>
+# Copyright (C) 2012		CIXUG - Oficina de Software Libre <osl@cixug.es>
+#			  	OpenHost - Fran Dieguez <fran@openhost.es>
+#
+# Distribuído baixo os termos da licenza MIT
+
+# ==================================================================
+# Ferrallas para montaxe do CD de LiveCD dende o cd oficial de Ubuntu
+# ==================================================================
+#
+# Este conxunto de scripts permite de forma sinxela extraer o contido do CD
+# oficial de Ubuntu e crear un entorno de traballo para facer as
+# modificacións necesarias para obter o CD de LiveCD, así como tamén
+# reempaquetar o CD unha vez rematada a tarefa de modificación.
+
+#
+# -----------------------------------------
+# Definición de Funcións comúns nos scripts
+# -----------------------------------------
+#
+
+# err: Sair do script en caso de erro cunha mensaxe
+err() {
+  echo -e "ATENCIÓN: $@"
+  exit 1
+}
+
+# warn: Saca unha mensaxe de advertencia sen deter o script
+warn() {
+  printf "\033[1;36mATENCIÓN: $@\033[0m"
+}
+
+mess(){
+  printf "\033[1;36m$@\033[0m"
+}
