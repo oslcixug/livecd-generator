@@ -124,5 +124,5 @@ umount -lv $1/var/run || \
  warn "Non foi posíbel desmontar $1/var/run"
 
 # Borrase o resolv e o script temporal
-rm -vf $1/etc/resolv.conf &> /dev/null
+#rm -vf $1/etc/resolv.conf &> /dev/null
 rm -vf $1/tmp/*.sh &> /dev/null
