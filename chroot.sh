@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 #
 # chroot.sh
 # Copyright (C) 2008      Mancomun - Óscar García Amor <ogarcia@mancomun.org>
@@ -94,7 +94,7 @@ PS1="[chr] \[\e[31;01m\]\h \[\e[34;01m\]\W # \[\e[0m\]"
 mount -v -t proc none /proc &> /dev/null
 mount -v -t sysfs none /sys &> /dev/null
 mount -v -t devpts none /dev/pts &> /dev/null
-echo "Pra proceder coa personalización da súa distro execute \"/tmp/so-xug-12-04.sh\""
+echo "Para proceder coa personalización da súa distro execute \"/tmp/so-xug-14-04.sh\""
 EOF
 cp generators/*.sh $1/tmp &> /dev/null
 chmod a+x $1/tmp/*.sh &> /dev/null

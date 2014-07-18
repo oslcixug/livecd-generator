@@ -9,8 +9,6 @@
 #
 # Distribuido baixo os termos da licenza MIT.
 #
-CODENAME=`lsb_release -cs`
-
 mess(){
   printf "\033[1;36m $@ \033[0m\n"
 }
@@ -34,17 +32,15 @@ add-apt-repository ppa:tiheum/equinox
 add-apt-repository ppa:webupd8team/java
 
 cat > /etc/apt/sources.list << EOF
-deb http://archive.ubuntu.com/ubuntu/ precise main restricted universe multiverse
-deb http://security.ubuntu.com/ubuntu/ precise-security main restricted universe multiverse
-deb http://archive.ubuntu.com/ubuntu/ precise-updates main restricted universe multiverse
-deb http://archive.canonical.com/ubuntu precise partner
-deb http://extras.ubuntu.com/ubuntu precise main
-deb-src http://extras.ubuntu.com/ubuntu precise main
+deb http://archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb http://archive.canonical.com/ubuntu trusty partner
+deb http://extras.ubuntu.com/ubuntu trusty main
+deb-src http://extras.ubuntu.com/ubuntu trusty main
 EOF
 
-cat > /etc/apt/sources.list.d/r-cran.list << EOF
-deb http://ftp.cixug.es/CRAN/bin/linux/ubuntu trusty/
-EOF
+echo "deb http://ftp.cixug.es/CRAN/bin/linux/ubuntu trusty/" > /etc/apt/sources.list.d/r-cran.list 
 
 # INSTALACION CIXUG BASE ----------------------------------------------------------
 
@@ -53,8 +49,7 @@ mess "Instalando as chaves de seguranza de APT ..."
 wget -q -O- http://packages.cixug.es/so.xug/lists/xug-keyring.gpg | apt-key add -
 wget -q -O- http://ftp.cixug.es/pub/rcmdr/cran.gpg | apt-key add -
 apt-get update
-apt-get install xug-keyring -y --force-yes
-apt-get update
+#apt-get install xug-keyring -y --force-yes
 
 #Instalamos SO.XUG
 mess "Instalando o escritorio de so.xug (pode levar algun tempo) ...\n"
@@ -70,10 +65,10 @@ cat > /etc/casper.conf << EOF
 # Supported variables are:
 # USERNAME, USERFULLNAME, HOST, BUILD_SYSTEM
 
-export USERNAME="ubuntu"
+export USERNAME="osl"
 export USERFULLNAME="Sesion do CD-Vivo"
-export HOST="ubuntu"
-export BUILD_SYSTEM="Ubuntu"
+export HOST="soxug"
+export BUILD_SYSTEM="Soxug"
 EOF
 
 # LIMPANDO A CASA PARA SAIR ---------------------------------------------------
