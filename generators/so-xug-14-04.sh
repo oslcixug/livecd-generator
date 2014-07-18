@@ -3,6 +3,9 @@
 # so-xug-12-04.sh
 # Copyright (C) 2012	CIXUG - Oficina de Software Libre <osl@cixug.es>
 # 						OpenHost - Fran Dieguez <fran@openhost.es>
+# so-xug-14-04.sh
+# Copyright (C) 2014	CIXUG - Oficina de Software Libre <osl@cixug.es>
+# 						Rafael R. Gaioso <rafael@gaioso.es>
 #
 # Distribuido baixo os termos da licenza MIT.
 #
@@ -13,7 +16,7 @@ mess(){
 }
 
 # Paramos os demonios que non precisamos
-mess "Stopping daemons... "
+mess "Parando os <<daemons>>... "
 service cups stop
 service anacron stop
 service hal stop
@@ -21,15 +24,16 @@ service acpid stop
 
 # ACTIVACION REPOS ---------------------------------------------------------------
 
-mess "Activating external repositories..."
-wget http://packages.cixug.es/so.xug/lists/precise.list \
-      --output-document=/etc/apt/sources.list.d/ubuntu-cixug.list
+mess "Activando repositorios adicionais ..."
+#wget http://packages.cixug.es/so.xug/lists/precise.list \
+#      --output-document=/etc/apt/sources.list.d/ubuntu-cixug.list
+
+echo "deb http://packages.cixug.es/ubuntu/ trusty main" > /etc/apt/sources.list.d/soxug.list
 
 add-apt-repository ppa:tiheum/equinox
 add-apt-repository ppa:webupd8team/java
 
 cat > /etc/apt/sources.list << EOF
-# /etc/apt/sources.list
 deb http://archive.ubuntu.com/ubuntu/ precise main restricted universe multiverse
 deb http://security.ubuntu.com/ubuntu/ precise-security main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu/ precise-updates main restricted universe multiverse
@@ -39,14 +43,15 @@ deb-src http://extras.ubuntu.com/ubuntu precise main
 EOF
 
 cat > /etc/apt/sources.list.d/r-cran.list << EOF
-deb http://cran.es.r-project.org/bin/linux/ubuntu precise/
+deb http://ftp.cixug.es/CRAN/bin/linux/ubuntu trusty/
 EOF
 
 # INSTALACION CIXUG BASE ----------------------------------------------------------
 
 # Instalamos chaves de seguranza de cifraxe de pacotes
 mess "Instalando as chaves de seguranza de APT ..."
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 # r-cran
+wget -q -O- http://packages.cixug.es/so.xug/lists/xug-keyring.gpg | apt-key add -
+wget -q -O- http://ftp.cixug.es/pub/rcmdr/cran.gpg | apt-key add -
 apt-get update
 apt-get install xug-keyring -y --force-yes
 apt-get update
@@ -87,4 +92,4 @@ for i in `find /var/log -type f`; do \
 echo "" > $i;
 done
 
-exit 0
+exit
