@@ -124,7 +124,7 @@ fi
 
 # Personalizando o arrinque da vivo, apariencia e idioma.
 mess "A modificar visualmente o arrinque de SO.XUG no livecd...\n"
-sudo cp images/splash.p* $EXTRACTCD/isolinux
+#sudo cp images/splash.p* $EXTRACTCD/isolinux
 sudo sed -i 's/B6875A/5071B3/' $EXTRACTCD/isolinux/gfxboot.cfg
 
 mess "Establecendo o idioma galego por defecto no arrinque da livecd...\n"
@@ -175,5 +175,5 @@ mess "A crear a nova ISO . . . \n"
    -no-emul-boot -boot-load-size 4 -boot-info-table -o \
    ../../final-isos/$ISO .  &> /dev/null && cd $OLDPWD; } || \
     err "Non foi posíbel crear a imaxe do CD"
-chmod 644 $EXTRACTCD/../$ISO
+chmod 644 final-isos/$ISO
 mess "A nova imaxe ISO co CD de «$NOMECD» creouse con éxito no cartafol \"final-isos\".\n"
