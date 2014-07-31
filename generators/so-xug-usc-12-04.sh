@@ -49,14 +49,35 @@ mess "Instalando as chaves de seguranza de APT ..."
 wget -q -O- http://packages.cixug.es/so.xug/lists/xug-keyring.gpg | apt-key add -
 wget -q -O- http://ftp.cixug.es/pub/rcmdr/cran.gpg | apt-key add -
 apt-get update
-#apt-get upgrade -y
+apt-get upgrade -y
 #apt-get install xug-keyring -y --force-yes
 
 #Instalamos SO.XUG
 mess "Instalando o escritorio de so.xug (pode levar algun tempo) ...\n"
 apt-get install xug-desktop ubiquity-slideshow-os-xug -y
+# Hai que instalar centrify desde os equipos das aulas
 #apt-get install centrifydc
 apt-get purge landscape-client-ui-install ubuntuone-client ubuntuone-installer -y
+
+# Configuración do proxy
+cp /tmp/environment /etc
+cp /tmp/95proxies /etc/apt/apt.conf.d
+
+# Configuración da páxina de inicio de Firefox a nivel do sistema
+echo "user_pref(\"browser.startup.homepage\", \"http://www.usc.es\");" >> /etc/firefox/syspref.js
+
+# Configuración da xanela de inicio de sesión para ocultar usuarios
+cat >> /etc/lightdm/lightdm.conf << EOF
+greeter-hide-users=true
+allow-guest=false
+EOF
+
+# Ocultar o cambio de usuario no escritorio unity
+cat > /usr/share/glib-2.0/schemas/soxug.schemas.override << EOF
+[com.canonical.indicator.session]
+user-show-menu=false
+EOF
+glib-compile-schemas /usr/share/glib-2.0/schemas
 
 # MODIFICAMOS ASPECTOS DO CD-VIVO ---------------------------------------------------
 mess "Estabelecendo os parametros do CD vivo (usuario, skel, kernel, casper) ...\n"

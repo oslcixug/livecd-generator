@@ -97,6 +97,8 @@ mount -v -t devpts none /dev/pts &> /dev/null
 echo "Para proceder coa personalización da súa distro execute \"/tmp/so-xug-14-04.sh\""
 EOF
 cp generators/*.sh $1/tmp &> /dev/null
+cp confs/* $1/tmp &> /dev/null
+
 chmod a+x $1/tmp/*.sh &> /dev/null
 
 # Faise o chroot utilizando o ficheiro temporal coma rc
