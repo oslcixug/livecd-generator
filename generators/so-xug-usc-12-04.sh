@@ -54,7 +54,7 @@ apt-get upgrade -y
 
 #Instalamos SO.XUG
 mess "Instalando o escritorio de so.xug (pode levar algun tempo) ...\n"
-apt-get install xug-desktop ubiquity-slideshow-os-xug -y
+apt-get install xug-desktop ubiquity-slideshow-os-xug xug-redeusc -y
 # Hai que instalar centrify desde os equipos das aulas
 #apt-get install centrifydc
 apt-get purge landscape-client-ui-install ubuntuone-client ubuntuone-installer -y
