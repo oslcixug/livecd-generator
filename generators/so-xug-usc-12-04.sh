@@ -27,6 +27,7 @@ mess "Activando repositorios adicionais ..."
 #      --output-document=/etc/apt/sources.list.d/ubuntu-cixug.list
 
 echo "deb http://packages.cixug.es/ubuntu/ precise main" > /etc/apt/sources.list.d/soxug.list
+add-apt-repository ppa:libreoffice/ppa
 
 #add-apt-repository ppa:tiheum/equinox
 #add-apt-repository ppa:webupd8team/java
@@ -50,11 +51,11 @@ wget -q -O- http://packages.cixug.es/so.xug/lists/xug-keyring.gpg | apt-key add 
 wget -q -O- http://ftp.cixug.es/pub/rcmdr/cran.gpg | apt-key add -
 apt-get update
 apt-get upgrade -y
-#apt-get install xug-keyring -y --force-yes
 
 #Instalamos SO.XUG
 mess "Instalando o escritorio de so.xug (pode levar algun tempo) ...\n"
-apt-get install xug-desktop ubiquity-slideshow-os-xug xug-redeusc -y
+apt-get install xug-desktop ubiquity-slideshow-os-xug -y
+apt-get install xug-redeusc -y
 
 # Desinstalamos UbuntuOne e o menu global das xanelas propio de Unity
 
