@@ -55,9 +55,11 @@ apt-get upgrade -y
 #Instalamos SO.XUG
 mess "Instalando o escritorio de so.xug (pode levar algun tempo) ...\n"
 apt-get install xug-desktop ubiquity-slideshow-os-xug xug-redeusc -y
-# Hai que instalar centrify desde os equipos das aulas
-#apt-get install centrifydc
+
+# Desinstalamos UbuntuOne e o menu global das xanelas propio de Unity
+
 apt-get purge landscape-client-ui-install ubuntuone-client ubuntuone-installer -y
+apt-get remove indicator-appmenu -y
 
 # Configuración do proxy
 cp /tmp/environment /etc
