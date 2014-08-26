@@ -64,7 +64,9 @@ cp /tmp/environment /etc
 cp /tmp/95proxies /etc/apt/apt.conf.d
 
 # Configuración da páxina de inicio de Firefox a nivel do sistema
+# e da orde das linguaxes nas que amosar as páxinas
 echo "user_pref(\"browser.startup.homepage\", \"http://www.usc.es\");" >> /etc/firefox/syspref.js
+echo "user_pref(\"intl.accept_languages\", \"gl-gl,gl,es-es,en-us,en\");" >> /etc/firefox/syspref.js
 
 # Configuración da xanela de inicio de sesión para ocultar usuarios
 cat >> /etc/lightdm/lightdm.conf << EOF
