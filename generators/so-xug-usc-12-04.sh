@@ -81,7 +81,7 @@ EOF
 cp /usr/share/backgrounds/ubuntu-xug/os.xug-wallpaper-2-logos.png /usr/share/backgrounds/warty-final-ubuntu.png
 
 # Ocultar o cambio de usuario no escritorio unity
-cat > /usr/share/glib-2.0/schemas/soxug.schemas.override << EOF
+cat > /usr/share/glib-2.0/schemas/soxug.gschema.override << EOF
 [com.canonical.indicator.session]
 user-show-menu=false
 EOF
