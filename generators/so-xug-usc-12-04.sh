@@ -77,6 +77,9 @@ greeter-hide-users=true
 allow-guest=false
 EOF
 
+# Modificamos o fondo que utiliza ubiquity durante o proceso de instalación inicial
+cp /usr/share/backgrounds/ubuntu-xug/os.xug-wallpaper-2-logos.png /usr/share/backgrounds/warty-final-ubuntu.png
+
 # Ocultar o cambio de usuario no escritorio unity
 cat > /usr/share/glib-2.0/schemas/soxug.schemas.override << EOF
 [com.canonical.indicator.session]
