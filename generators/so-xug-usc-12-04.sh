@@ -63,8 +63,8 @@ apt-get purge landscape-client-ui-install ubuntuone-client ubuntuone-installer -
 apt-get remove indicator-appmenu -y
 
 # Configuración do proxy
-cp /tmp/environment /etc
-cp /tmp/95proxies /etc/apt/apt.conf.d
+# cp /tmp/environment /etc
+# cp /tmp/95proxies /etc/apt/apt.conf.d
 
 # Configuración da páxina de inicio de Firefox a nivel do sistema
 # e da orde das linguaxes nas que amosar as páxinas
