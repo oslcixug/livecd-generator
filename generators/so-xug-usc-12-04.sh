@@ -55,6 +55,7 @@ apt-get upgrade -y
 #Instalamos SO.XUG
 mess "Instalando o escritorio de so.xug (pode levar algun tempo) ...\n"
 apt-get install xug-desktop ubiquity-slideshow-os-xug -y
+apt-get install libreoffice-l10n-gl -y
 apt-get install xug-redeusc -y
 
 # Desinstalamos UbuntuOne e o menu global das xanelas propio de Unity
