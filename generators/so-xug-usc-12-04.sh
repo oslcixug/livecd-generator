@@ -88,6 +88,10 @@ user-show-menu=false
 EOF
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
+# Desactivamos as mensaxes de actualizacións, tanto de LTS como as mensaxes diarias
+sed -i -r -e 's/Prompt=lts/Prompt=never/g' /etc/update-manager/release-upgrades
+sed -i -r -e 's/APT::Periodic::Update-Package-Lists "1"/APT::Periodic::Update-Package-Lists "0"/g' /etc/apt/apt.conf.d/10periodic
+
 # MODIFICAMOS ASPECTOS DO CD-VIVO ---------------------------------------------------
 mess "Estabelecendo os parametros do CD vivo (usuario, skel, kernel, casper) ...\n"
 # ReescrÃ­bese a configuraciÃ³n do CASPER para cambiar o nome do usuario
