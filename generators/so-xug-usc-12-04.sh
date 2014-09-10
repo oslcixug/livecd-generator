@@ -26,8 +26,7 @@ mess "Activando repositorios adicionais ..."
 #wget http://packages.cixug.es/so.xug/lists/precise.list \
 #      --output-document=/etc/apt/sources.list.d/ubuntu-cixug.list
 
-echo "deb http://packages.cixug.es/ubuntu/ precise main" > /etc/apt/sources.list.d/soxug.list
-add-apt-repository ppa:libreoffice/ppa
+add-apt-repository ppa:libreoffice/ppa -y
 
 #add-apt-repository ppa:tiheum/equinox
 #add-apt-repository ppa:webupd8team/java
@@ -42,8 +41,12 @@ deb-src http://extras.ubuntu.com/ubuntu precise main
 EOF
 
 echo "deb http://ftp.cixug.es/CRAN/bin/linux/ubuntu precise/" > /etc/apt/sources.list.d/r-cran.list 
+echo "deb http://packages.cixug.es/ubuntu/ precise main" > /etc/apt/sources.list.d/soxug.list
 
 # INSTALACION CIXUG BASE ----------------------------------------------------------
+
+wget -q http://ftp.cixug.es/pub/usc/environment -O /etc/environment.osl
+wget -q http://ftp.cixug.es/pub/usc/95proxies -O /etc/95proxies.osl
 
 # Instalamos chaves de seguranza de cifraxe de pacotes
 mess "Instalando as chaves de seguranza de APT ..."
