@@ -3,7 +3,7 @@
 # so-xug-12-04.sh
 # Copyright (C) 2012	CIXUG - Oficina de Software Libre <osl@cixug.es>
 # 						OpenHost - Fran Dieguez <fran@openhost.es>
-# so-xug-14-04.sh
+# so-xug-usc-12.04.5.sh
 # Copyright (C) 2014	CIXUG - Oficina de Software Libre <osl@cixug.es>
 # 						Rafael R. Gaioso <rafael@gaioso.es>
 #
