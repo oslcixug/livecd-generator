@@ -48,7 +48,10 @@ echo "deb http://packages.cixug.es/ubuntu/ precise main" > /etc/apt/sources.list
 # Instalamos chaves de seguranza de cifraxe de pacotes
 mess "Instalando as chaves de seguranza de APT ..."
 wget -q -O- http://packages.cixug.es/so.xug/lists/xug-keyring.gpg | apt-key add -
-wget -q -O- http://ftp.cixug.es/pub/rcmdr/cran.gpg | apt-key add -
+# Esta chave caducou o 18-10-2015
+# wget -q -O- http://ftp.cixug.es/pub/rcmdr/cran.gpg | apt-key add -
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 apt-get update
 apt-get upgrade -y
 
